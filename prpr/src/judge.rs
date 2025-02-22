@@ -361,7 +361,7 @@ impl Judge {
     pub fn update(&mut self, res: &mut Resource, chart: &mut Chart, bad_notes: &mut Vec<BadNote>) {
 
         let (LIMIT_BAD_R, LIMIT_GOOD_R, LIMIT_PERFECT_R) =
-            if res.config.strict() {
+            if !res.config.strict() {
                 (LIMIT_BAD, LIMIT_GOOD,LIMIT_PERFECT)
             } else {
                 (LIMIT_BAD*0.5, LIMIT_GOOD*0.5, 0.5* LIMIT_PERFECT)
